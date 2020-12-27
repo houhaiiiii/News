@@ -38,4 +38,5 @@ public interface AdChannelService extends IService<AdChannel> {
      * @return
      */
     public ResponseResult deleteById(Integer id);
+
 }

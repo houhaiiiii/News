@@ -122,6 +122,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
 
         //3.删除频道
         removeById(id);
+        
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
