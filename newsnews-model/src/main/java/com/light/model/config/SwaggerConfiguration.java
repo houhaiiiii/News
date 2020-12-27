@@ -1,6 +1,5 @@
-package com.light.admin.config;
+package com.light.model.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -28,11 +27,12 @@ public class SwaggerConfiguration {
    }
 
    private ApiInfo buildApiInfo() {
-      Contact contact = new Contact("黑马程序员","","");
+      Contact contact = new Contact("houhai","","");
       return new ApiInfoBuilder()
-              .title("黑马头条-平台管理API文档")
+              .title("头条-平台管理API文档")
               .description("平台管理服务api")
               .contact(contact)
               .version("1.0.0").build();
    }
+
 }

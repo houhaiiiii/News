@@ -16,11 +16,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
+/**
+ * 频道列表业务层实现类
+ * @author houhai
+ */
 @Service
 public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel> implements AdChannelService {
 
 
-
+    /**
+     * 根据名称分页查询频道列表
+     * @param dto
+     * @return
+     */
     @Override
     public ResponseResult findByNameAndPage(ChannelDto dto) {
 
@@ -45,19 +53,36 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         return responseResult;
     }
 
+    /**
+     * 频道新增
+     * @param adChannel
+     * @return
+     */
     @Override
     public ResponseResult insert(AdChannel adChannel) {
-        //1.检查参数
+        //检查参数
         if(null == adChannel){
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
 
-        //2.保存
+        //补充创建时间
         adChannel.setCreatedTime(new Date());
-        save(adChannel);
+
+        //保存
+        boolean flag = save(adChannel);
+
+        if (!flag) {
+            return ResponseResult.okResult(AppHttpCodeEnum.ERROR);
+        }
+
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
+    /**
+     * 修改
+     * @param adChannel
+     * @return
+     */
     @Override
     public ResponseResult update(AdChannel adChannel) {
 
@@ -71,6 +96,11 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
+    /**
+     * 通过id删除
+     * @param id
+     * @return
+     */
     @Override
     public ResponseResult deleteById(Integer id) {
         //1.检查参数
@@ -78,10 +108,12 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
         //2.判断当前频道是否存在 和 是否有效
-        AdChannel adChannel = getById(id);
+        AdChannel adChannel = getById(id); //通过id获得频道信息
+
         if(adChannel==null){
             return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST);
         }
+        //如果当前状态为有效则不能删除
         if(adChannel.getStatus()){
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID,"频道有效不能删除");
         }
@@ -92,4 +124,5 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         removeById(id);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
+
 }

@@ -1,6 +1,6 @@
 package com.light.aliyun.test;
 
-import com.light.common.aliyun.GreenImageScan;
+//import com.light.common.aliyun.GreenImageScan;
 
 public class MainTest {
 

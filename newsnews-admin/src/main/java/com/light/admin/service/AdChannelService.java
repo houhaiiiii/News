@@ -5,6 +5,10 @@ import com.light.model.admin.dtos.ChannelDto;
 import com.light.model.admin.pojos.AdChannel;
 import com.light.model.common.dtos.ResponseResult;
 
+/**
+ * 频道列表业务层接口
+ * @author houhai
+ */
 public interface AdChannelService extends IService<AdChannel> {
 
     /**
