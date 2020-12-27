@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/NewsNews.iml" filepath="$PROJECT_DIR$/.idea/NewsNews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsnews-admin/newsnews-admin.iml" filepath="$PROJECT_DIR$/newsnews-admin/newsnews-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsnews-apis/newsnews-apis.iml" filepath="$PROJECT_DIR$/newsnews-apis/newsnews-apis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsnews-common/newsnews-common.iml" filepath="$PROJECT_DIR$/newsnews-common/newsnews-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsnews-model/newsnews-model.iml" filepath="$PROJECT_DIR$/newsnews-model/newsnews-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsnews-utils/newsnews-utils.iml" filepath="$PROJECT_DIR$/newsnews-utils/newsnews-utils.iml" />
+    </modules>
+  </component>
+</project>
