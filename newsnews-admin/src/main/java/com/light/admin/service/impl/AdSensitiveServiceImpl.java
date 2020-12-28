@@ -14,6 +14,8 @@ import com.light.model.common.enums.AppHttpCodeEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * 敏感词信息业务实现类
  * @author houhai
@@ -57,7 +59,18 @@ public class AdSensitiveServiceImpl extends ServiceImpl<AdSensitiveMapper, AdSen
      */
     @Override
     public ResponseResult insert(AdSensitive adSensitive){
-        return null;
+        //判断传入的参数是否正常,传入的为空直接返回错误信息
+        if (adSensitive == null) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.ERROR);
+        }
+
+        //保存当前的时间戳
+        adSensitive.setCreatedTime(new Date());
+
+        //保存数据
+        save(adSensitive);
+
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     };
 
     /**
@@ -67,7 +80,16 @@ public class AdSensitiveServiceImpl extends ServiceImpl<AdSensitiveMapper, AdSen
      */
     @Override
     public ResponseResult update(AdSensitive adSensitive){
-        return null;
+
+        //判空
+        if (adSensitive == null || adSensitive.getId() == null) {
+            //返回错误提示
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+
+        updateById(adSensitive);
+
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     };
 
     /**
@@ -77,7 +99,22 @@ public class AdSensitiveServiceImpl extends ServiceImpl<AdSensitiveMapper, AdSen
      */
     @Override
     public ResponseResult deleteById(Integer id){
-        return null;
+
+        //判断传入参数是否为空
+        if (id == null) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+
+        //判断敏感词是否存在
+        AdSensitive adSensitive = getById(id);
+        if (adSensitive == null) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST);
+        }
+
+        //删除操作
+        removeById(id);
+
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     };
 
 }

@@ -20,7 +20,7 @@ public class ExceptionCatch{
      * @param exception
      * @return
      */
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(Exception.class)  //表示拦截所有的Exception.class类型的请求
     @ResponseBody
     public ResponseResult exception(Exception exception){
 

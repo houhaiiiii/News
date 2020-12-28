@@ -8,9 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PageRequestDto {
 
-    @ApiModelProperty(value="当前页",required = true)
+    @ApiModelProperty(value="当前页",example = "10",required = true)
     protected Integer size;
-    @ApiModelProperty(value="每页显示条数",required = true)
+    @ApiModelProperty(value="每页显示条数",example = "1",required = true)
     protected Integer page;
 
     public void checkParam() {
