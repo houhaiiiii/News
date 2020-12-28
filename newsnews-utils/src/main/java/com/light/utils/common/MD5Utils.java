@@ -7,6 +7,7 @@ public class MD5Utils {
 
     /**
      * MD5加密
+     *
      * @param str
      * @return
      */
@@ -23,12 +24,14 @@ public class MD5Utils {
             for (int i = 0; i < mdBytes.length; i++) {
                 int temp;
                 //如果有小于0的字节,则转换为正数
-                if (mdBytes[i] < 0)
+                if (mdBytes[i] < 0) {
                     temp = 256 + mdBytes[i];
-                else
+                } else {
                     temp = mdBytes[i];
-                if (temp < 16)
+                }
+                if (temp < 16) {
                     hash += "0";
+                }
                 //将字节转换为16进制后，转换为字符串
                 hash += Integer.toString(temp, 16);
             }
@@ -45,6 +48,6 @@ public class MD5Utils {
 
     public static void main(String[] args) {
         System.out.println(encode("test"));//e10adc3949ba59abbe56e057f20f883e
-        System.out.println(encodeWithSalt("123456","123456"));//5f1d7a84db00d2fce00b31a7fc73224f
+        System.out.println(encodeWithSalt("123456", "123456"));//5f1d7a84db00d2fce00b31a7fc73224f
     }
 }
