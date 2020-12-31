@@ -17,6 +17,9 @@
         <module>newsnews-model</module>
         <module>newsnews-admin</module>
         <module>newsnews-admin-gateway</module>
+        <module>newsnews-user</module>
+        <module>newsnews-wemedia</module>
+        <module>newsnews-article</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->

@@ -1,19 +1,22 @@
-package com.light.admin.gateway;
+package com.light.wemedia;
 
+
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * gateway网关模块引导类
+ * 用户自媒体引导类
  * @author houhai
  */
-@SpringBootApplication
 @EnableDiscoveryClient
-public class GatewayApplication {
+@MapperScan("com.light.wemedia.mapper")
+@SpringBootApplication
+public class WemediaSpringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class,args);
+        SpringApplication.run(WemediaSpringApplication.class);
     }
 
 }

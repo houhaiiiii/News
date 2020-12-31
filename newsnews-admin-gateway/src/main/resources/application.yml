@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: newsnews-admin-gateway
+
+  # 配置redis
+  redis:
+    host: 192.168.86.130
+    port: 6379
+
   cloud:
     nacos:
       discovery:
@@ -17,11 +23,37 @@ spring:
             - POST
             - PUT
             - DELETE
+
       routes:
       # 平台管理
       - id: admin
-        uri: lb://newsnews-admin
+        uri: lb://newsnews-admin  # 要和nacos中的服务名称对应
         predicates:
-        - Path=/admin/**
+         - Path=/admin/**
+        filters:
+         - StripPrefix= 1
+
+      # 用户管理模块网关配置
+      - id: user
+        uri: lb://newsnews-user  # 要和nacos中的服务名称对应
+        predicates:
+         - Path=/user/**
+        filters:
+         - StripPrefix= 1
+
+     # APP作者管理模块网关配置
+      - id: article
+        uri: lb://newsnews-article  # 要和nacos中的服务名称对应
+        predicates:
+        - Path=/article/**
         filters:
         - StripPrefix= 1
+
+      # 自媒体用户管理模块网关配置
+      - id: wemedia
+        uri: lb://newsnews-wemedia  # 要和nacos中的服务名称对应
+        predicates:
+        - Path=/wemedia/**
+        filters:
+        - StripPrefix= 1
+

@@ -3,7 +3,7 @@ package com.light.model.common.enums;
 public enum AppHttpCodeEnum {
 
     // 成功段0
-    SUCCESS(0,"操作成功"),
+    SUCCESS(200,"操作成功"),
 
     //失败段 -1
     ERROR(-1,"操作失败"),

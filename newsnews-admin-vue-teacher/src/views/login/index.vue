@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     async submitForm () {
-      this.$router.replace({ path: '/auth/index' })
+      //this.$router.replace({ path: '/auth/index' })
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           const { password, name } = this.ruleForm

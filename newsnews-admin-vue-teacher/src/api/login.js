@@ -13,7 +13,8 @@ export function loginByUsername (name, password) {
   }).then(result => {
     if (result.code === 200) {
       const temp = result.data
-      setUser({ name: temp.user.name, photo: null, token: temp.token }) // 设置用户的个人数据
+      // 设置用户的个人数据
+      setUser({ name: temp.user.name, photo: null, token: temp.token })
     }
     return result
   })
