@@ -11,6 +11,10 @@ spring:
     alibaba:
       seata:
         tx-service-group: ${spring.application.name}_tx_group
+  # redis配置
+  redis:
+    host: 192.168.86.130
+    port: 6379
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.86.130:3307/newsnews_wemedia?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
@@ -20,7 +24,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
-  type-aliases-package: com.light.model.media.pojos
-# 图片访问ip
+  type-aliases-package: com.light.model.wemedia.pojos
+# 图片访问ip，添加自定义的图片访问ip
 fdfs:
-  web-server-url: http://192.168.86.130/
+ url: http://192.168.86.130/

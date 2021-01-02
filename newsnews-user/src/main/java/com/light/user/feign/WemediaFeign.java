@@ -1,7 +1,7 @@
 package com.light.user.feign;
 
 import com.light.model.common.dtos.ResponseResult;
-import com.light.model.media.pojos.WmUser;
+import com.light.model.wemedia.pojos.WmUser;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

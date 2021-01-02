@@ -1,4 +1,4 @@
-package com.light.model.media.pojos;
+package com.light.model.wemedia.pojos;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

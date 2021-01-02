@@ -1,7 +1,7 @@
 package com.light.wemedia.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.light.model.media.pojos.WmUser;
+import com.light.model.wemedia.pojos.WmUser;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

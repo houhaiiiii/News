@@ -9,7 +9,7 @@ import com.light.model.article.pojos.ApAuthor;
 import com.light.model.common.dtos.PageResponseResult;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.common.enums.AppHttpCodeEnum;
-import com.light.model.media.pojos.WmUser;
+import com.light.model.wemedia.pojos.WmUser;
 import com.light.model.user.dtos.AuthDto;
 import com.light.model.user.pojos.ApUser;
 import com.light.model.user.pojos.ApUserRealname;

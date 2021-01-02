@@ -2,7 +2,7 @@ package com.light.wemedia.controller.v1;
 
 import com.light.apis.user.WmUserControllerApi;
 import com.light.model.common.dtos.ResponseResult;
-import com.light.model.media.pojos.WmUser;
+import com.light.model.wemedia.pojos.WmUser;
 import com.light.wemedia.service.WmUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

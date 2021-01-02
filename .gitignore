@@ -1,6 +1,31 @@
-*.iml
-target/
-*.class
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
 .idea/
-logs/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+**/target/
+
+# java
+*.class
+*.war
+*.ear
+
+# jrebel
+rebel.xml
+
+# bak
+*.bak
+**/bin/
+
+# vue
 node_modules/

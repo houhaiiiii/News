@@ -1,7 +1,7 @@
 package com.light.apis.user;
 
 import com.light.model.common.dtos.ResponseResult;
-import com.light.model.media.pojos.WmUser;
+import com.light.model.wemedia.pojos.WmUser;
 
 /**
  * 自媒体用户控制层API接口

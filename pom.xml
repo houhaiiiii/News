@@ -21,6 +21,7 @@
         <module>newsnews-wemedia</module>
         <module>newsnews-article</module>
         <module>newsnews-seata</module>
+        <module>newsnews-wemedia-gateway</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->
