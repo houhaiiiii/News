@@ -96,7 +96,7 @@ export default {
         status: 4
       }
       const res = await authPass(params)
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.submitSuccess()
         this.$message({ type: 'success', message: '操作成功！' })
       } else {
@@ -123,7 +123,7 @@ export default {
         params.title = value
 
         const res = await authFail(params)
-        if (res.code === 0) {
+        if (res.code === 200) {
           this.submitSuccess()
           this.$message({ type: 'success', message: '操作成功！' })
         } else {

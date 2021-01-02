@@ -72,7 +72,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         boolean flag = save(adChannel);
 
         if (!flag) {
-            return ResponseResult.okResult(AppHttpCodeEnum.ERROR);
+            return ResponseResult.errorResult(AppHttpCodeEnum.SERVER_ERROR);
         }
 
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);

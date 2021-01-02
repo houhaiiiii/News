@@ -17,14 +17,24 @@
             <groupId>com.light</groupId>
             <artifactId>newsnews-model</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.light</groupId>
             <artifactId>newsnews-common</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.light</groupId>
             <artifactId>newsnews-apis</artifactId>
         </dependency>
+
+        <!--seata-->
+        <dependency>
+            <groupId>com.light</groupId>
+            <artifactId>newsnews-seata</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Spring boot starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

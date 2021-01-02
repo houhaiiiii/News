@@ -21,7 +21,6 @@ public class WmUserController implements WmUserControllerApi {
     @PostMapping("/save")
     @Override
     public ResponseResult save(WmUser wmUser) {
-
         return service.insert(wmUser);
     }
 

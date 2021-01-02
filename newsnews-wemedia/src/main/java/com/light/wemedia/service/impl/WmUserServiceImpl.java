@@ -7,6 +7,7 @@ import com.light.model.common.enums.AppHttpCodeEnum;
 import com.light.model.media.pojos.WmUser;
 import com.light.wemedia.mapper.WmUserMapper;
 import com.light.wemedia.service.WmUserService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +18,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class WmUserServiceImpl extends ServiceImpl<WmUserMapper, WmUser> implements WmUserService {
 
+    @GlobalTransactional
     @Override
     public ResponseResult insert(WmUser wmUser) {
         //校验参数
         if (wmUser == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
+
+        //测试分布式事务
+        //int i = 10/0;
 
         //保存自媒体用户
         save(wmUser);
@@ -43,4 +48,5 @@ public class WmUserServiceImpl extends ServiceImpl<WmUserMapper, WmUser> impleme
 
         return ResponseResult.okResult(wmUser);
     }
+
 }

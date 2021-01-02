@@ -20,6 +20,7 @@
         <module>newsnews-user</module>
         <module>newsnews-wemedia</module>
         <module>newsnews-article</module>
+        <module>newsnews-seata</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->

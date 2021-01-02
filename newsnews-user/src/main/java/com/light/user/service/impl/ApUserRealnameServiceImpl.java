@@ -47,13 +47,13 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
 
         //检查参数
         dto.checkParam();
-        QueryWrapper<ApUserRealname> wrapper = new QueryWrapper<>();
+        QueryWrapper<ApUserRealname> queryWrapper = new QueryWrapper<ApUserRealname>();
         if (dto.getStatus() != null) {
-            wrapper.lambda().eq(ApUserRealname::getStatus, dto.getStatus());
+            queryWrapper.lambda().eq(ApUserRealname::getStatus, dto.getStatus());
         }
 
         IPage pageParam = new Page(dto.getPage(), dto.getSize());
-        IPage page = page(pageParam, wrapper);
+        IPage page = page(pageParam, queryWrapper);
 
         PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(), (int) page.getTotal());
         responseResult.setCode(200);
@@ -129,8 +129,9 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
 
         //检测自媒体用户是否存在
         WmUser wmUser = wemediaFeign.findByName(apUser.getName());
+
         //如果没有则给自媒体用户的字段赋值
-        if (wmUser == null) {
+        if (wmUser == null || wmUser.getId()==null) {
             wmUser = new WmUser();
             wmUser.setApUserId(apUser.getId());
             wmUser.setCreatedTime(new Date());
@@ -158,7 +159,10 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
         //获得用户ID
         Integer apUserId = wmUser.getApUserId();
         //通过feign调用自媒体作者模块通过id查询账号
-        ApAuthor apAuthor = articleFeign.findByUserId(apUserId);
+        ResponseResult<ApAuthor> result = articleFeign.findByUserId(apUserId);
+
+        ApAuthor apAuthor = result.getData();
+
         //如果账号为空，则表示该用户没有注册，为其APP用户注册自媒体作者账号
         if (apAuthor == null) {
             apAuthor = new ApAuthor();
@@ -176,6 +180,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
      * @return
      */
     public boolean statusCheck(Short status) {
+        // status ==null || status != 2,!= 9
         if (status == null || (!status.equals(UserConstants.FAIL_AUTH) && !status.equals(UserConstants.PASS_AUTH))) {
             return true;
         }

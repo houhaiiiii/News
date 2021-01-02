@@ -61,7 +61,7 @@ public class AdSensitiveServiceImpl extends ServiceImpl<AdSensitiveMapper, AdSen
     public ResponseResult insert(AdSensitive adSensitive){
         //判断传入的参数是否正常,传入的为空直接返回错误信息
         if (adSensitive == null) {
-            return ResponseResult.errorResult(AppHttpCodeEnum.ERROR);
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
 
         //保存当前的时间戳

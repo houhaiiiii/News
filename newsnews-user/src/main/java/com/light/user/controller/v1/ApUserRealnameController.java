@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 用户认证列表控制层
+ * 用户审核列表控制层
  * @author houhai
  */
 @RestController
@@ -25,7 +25,7 @@ public class ApUserRealnameController implements ApUserRealnameControllerApi {
 
     @PostMapping("/list")
     @Override
-    public PageResponseResult loadListByStatus(AuthDto dto) {
+    public PageResponseResult loadListByStatus(@RequestBody AuthDto dto) {
         return service.loadListByStatus(dto);
     }
 

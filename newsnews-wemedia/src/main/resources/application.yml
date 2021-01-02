@@ -7,6 +7,10 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.86.130:8848
+    # 配置分布式事务seata
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}_tx_group
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.86.130:3307/newsnews_wemedia?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
@@ -17,3 +21,6 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
   type-aliases-package: com.light.model.media.pojos
+# 图片访问ip
+fdfs:
+  web-server-url: http://192.168.86.130/
