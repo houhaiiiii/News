@@ -1,0 +1,32 @@
+server:
+  port: 6002
+spring:
+  application:
+    name: newsnews-wemedia-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.86.130:8848
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+            - GET
+            - POST
+            - PUT
+            - DELETE
+      routes:
+      # 平台管理
+      - id: wemedia
+        # 路由目标地址给需要访问目标路径
+        uri: lb://newsnews-wemedia
+        predicates:
+        - Path=/wemedia/**
+        filters:
+        - StripPrefix= 1
+  # redis配置
+  redis:
+    host: 192.168.86.130
+    port: 6379
