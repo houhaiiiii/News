@@ -106,7 +106,7 @@ public class WmNews implements Serializable {
      * 发布库文章ID
      */
     @TableField("article_id")
-    private Integer articleId;
+    private String articleId;
 
     /**
      * //图片用逗号分隔
@@ -120,7 +120,14 @@ public class WmNews implements Serializable {
      //状态枚举类
     @Alias("WmNewsStatus")
     public enum Status{
-        NORMAL((short)0),SUBMIT((short)1),FAIL((short)2),ADMIN_AUTH((short)3),ADMIN_SUCCESS((short)4),SUCCESS((short)8),PUBLISHED((short)9);
+        NORMAL((short)0),
+         SUBMIT((short)1),
+         FAIL((short)2),
+         ADMIN_AUTH((short)3),
+         ADMIN_SUCCESS((short)4),
+         SUCCESS((short)8),
+         PUBLISHED((short)9);
+
         short code;
         Status(short code){
             this.code = code;
@@ -128,6 +135,7 @@ public class WmNews implements Serializable {
         public short getCode(){
             return this.code;
         }
+
     }
 
 }

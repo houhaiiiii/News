@@ -10,6 +10,12 @@ import io.swagger.annotations.ApiOperation;
 public interface AdChannelControllerApi {
 
     /**
+     * 查询所有频道
+     * @return
+     */
+    public ResponseResult findAll();
+
+    /**
      * 根据名称分页查询频道列表
      * @param dto
      * @return

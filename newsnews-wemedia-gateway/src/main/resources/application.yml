@@ -26,6 +26,13 @@ spring:
         - Path=/wemedia/**
         filters:
         - StripPrefix= 1
+      # 频道管理
+      - id: admin
+        uri: lb://newsnews-admin
+        predicates:
+        - Path=/admin/**
+        filters:
+        - StripPrefix= 1
   # redis配置
   redis:
     host: 192.168.86.130

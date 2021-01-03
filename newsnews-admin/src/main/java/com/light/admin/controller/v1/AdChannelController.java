@@ -8,6 +8,8 @@ import com.light.model.common.dtos.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 频道列表控制层
  * @author houhai
@@ -18,6 +20,13 @@ public class AdChannelController implements AdChannelControllerApi {
 
     @Autowired
     private AdChannelService channelService;
+
+    @GetMapping("/channels")
+    @Override
+    public ResponseResult findAll() {
+        List<AdChannel> list = channelService.list();
+        return ResponseResult.okResult(list);
+    }
 
     /**
      * 根据名称分页查询频道列表
@@ -62,4 +71,7 @@ public class AdChannelController implements AdChannelControllerApi {
     public ResponseResult deleteById(@PathVariable("id") Integer id) {
         return channelService.deleteById(id);
     }
+
+
+
 }
