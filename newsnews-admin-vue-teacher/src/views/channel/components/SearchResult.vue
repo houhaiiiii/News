@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 import { updateData,delData } from '@/api/channel'
 
 export default {

@@ -1,5 +1,5 @@
 import { USER_KEY } from '@/constants/user'
-import emitter from '@/utils/event'
+import emitter from '@/util/event'
 // 设置存储
 export function setStore (key, value) {
   if (!key) {

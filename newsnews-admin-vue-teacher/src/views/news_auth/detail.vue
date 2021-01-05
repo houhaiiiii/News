@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 import { authOne, authPass, authFail } from '@/api/news_auth'
 
 export default {

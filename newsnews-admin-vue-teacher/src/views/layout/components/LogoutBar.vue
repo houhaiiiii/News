@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { getUser, clearUser } from '@/utils/store'
-import emitter from '@/utils/event'
+import { getUser, clearUser } from '@/util/store'
+import emitter from '@/util/event'
 export default {
   data () {
     return {

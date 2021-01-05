@@ -13,6 +13,12 @@
 
     <dependencies>
 
+        <!--feign调用-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- 引入内部依赖模块 -->
         <dependency>
             <groupId>com.light</groupId>

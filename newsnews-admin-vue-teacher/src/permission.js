@@ -1,9 +1,9 @@
 import router, { asyncRouterMap } from './router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-// import { getUser } from '@/utils/store'
+// import { getUser } from '@/util/store'
 
-// import LoadingManage from '@/utils/loading'
+// import LoadingManage from '@/util/loading'
 NProgress.configure({ showSpinner: false })
 router.beforeEach((to, from, next) => {
   // let user = getUser() //拉取个人用户信息

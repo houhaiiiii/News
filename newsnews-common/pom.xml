@@ -123,6 +123,7 @@
             <version>2.3.1</version>
         </dependency>
 
+        <!--阿里云内容安全检测依赖-->
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
@@ -168,7 +169,6 @@
             <artifactId>jsoup</artifactId>
         </dependency>
 
-        <!--不对劲-->
         <dependency>
             <groupId>com.xuxueli</groupId>
             <artifactId>xxl-job-core</artifactId>

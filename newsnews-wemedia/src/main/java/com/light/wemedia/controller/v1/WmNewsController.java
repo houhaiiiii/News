@@ -2,6 +2,7 @@ package com.light.wemedia.controller.v1;
 
 import com.light.apis.wemedia.WmNewsControllerApi;
 import com.light.model.common.dtos.ResponseResult;
+import com.light.model.common.enums.AppHttpCodeEnum;
 import com.light.model.wemedia.dtos.WmNewsDto;
 import com.light.model.wemedia.dtos.WmNewsPageReqDto;
 import com.light.model.wemedia.pojos.WmNews;
@@ -79,6 +80,29 @@ public class WmNewsController implements WmNewsControllerApi {
     @Override
     public ResponseResult downOrUp(@RequestBody WmNewsDto dto) {
         return wmNewsService.downOrUp(dto);
+    }
+
+    /**
+     * 根据id查询文章
+     * @param id
+     * @return
+     */
+    @GetMapping("/findOne/{id}")
+    @Override
+    public WmNews findById(Integer id) {
+        return wmNewsService.getById(id);
+    }
+
+    /**
+     * 修改文章
+     * @param wmNews
+     * @return
+     */
+    @PostMapping("/update")
+    @Override
+    public ResponseResult updateWmNews(WmNews wmNews) {
+        wmNewsService.updateById(wmNews);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
 }

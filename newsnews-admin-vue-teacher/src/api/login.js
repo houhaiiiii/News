@@ -1,5 +1,5 @@
-import request from '@/utils/request'
-import { setUser } from '@/utils/store'
+import request from '@/util/request'
+import { setUser } from '@/util/store'
 import { API_USERAUTH } from '@/constants/api'
 
 export function loginByUsername (name, password) {

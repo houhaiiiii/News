@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 import { down, up } from '@/api/content'
 export default {
   props: ['host', 'list', 'fileds', 'table', 'pageSize', 'total', 'changePage', 'changeStatus', 'editData', 'viewData'],

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 import { deleteData } from '@/api/sensitive'
 export default {
   props: ['host', 'list', 'table', 'pageSize', 'total', 'changePage', 'editData', 'submitSuccess'],

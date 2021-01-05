@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 const avatar = require('@/assets/avatar.jpg')
 export default {
   props: ['host', 'articleList', 'pageSize', 'total', 'changePage', 'deleteArticlesById', 'upOrDown'],

@@ -23,4 +23,11 @@ public interface WmUserControllerApi {
      */
     public ResponseResult findByName(String name);
 
+    /**
+     * 根据id查询自媒体用户
+     * @param id
+     * @return
+     */
+    public WmUser findWmUserById(Long id);
+
 }

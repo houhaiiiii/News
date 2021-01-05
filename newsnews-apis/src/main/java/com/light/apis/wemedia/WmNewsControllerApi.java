@@ -3,7 +3,7 @@ package com.light.apis.wemedia;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.wemedia.dtos.WmNewsDto;
 import com.light.model.wemedia.dtos.WmNewsPageReqDto;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.light.model.wemedia.pojos.WmNews;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
@@ -45,5 +45,19 @@ public interface WmNewsControllerApi {
      * @return
      */
     ResponseResult downOrUp(@RequestBody WmNewsDto dto);
+
+    /**
+     * 根据id查询文章
+     * @param id
+     * @return
+     */
+    WmNews findById(Integer id);
+
+    /**
+     * 修改文章
+     * @param wmNews
+     * @return
+     */
+    ResponseResult updateWmNews(WmNews wmNews);
 
 }

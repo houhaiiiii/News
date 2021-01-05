@@ -1,4 +1,4 @@
-import Request from '@/utils/request'
+import Request from '@/util/request'
 import { API_ARTICLES_INFO, API_STATISTICS_NEWS, API_ARTICLES_UPDOWN, API_SEARCHARTICELS, API_ARTICLES_DELETE } from '@/constants/api'
 
 // 获取统计数据

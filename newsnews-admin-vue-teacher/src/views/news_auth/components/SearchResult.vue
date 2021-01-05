@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 import { authPass, authFail } from '@/api/news_auth'
 export default {
   props: ['list', 'pageSize', 'total', 'changePage', 'submitSuccess'],

@@ -10,7 +10,7 @@
 
 <script>
 import { Sidebar, AppMain, Logoutbar } from './components'
-import emitter from '@/utils/event'
+import emitter from '@/util/event'
 
 export default {
   name: 'Layout',

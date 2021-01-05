@@ -1,4 +1,4 @@
-import Request from '@/utils/request'
+import Request from '@/util/request'
 import { API_CHANNEL_LIST, API_CHANNEL_SAVE, API_CHANNEL_UPDATE,API_CHANNEL_DEL } from '@/constants/api'
 
 export function loadList (data) {

@@ -1,4 +1,4 @@
-import Request from '@/utils/request'
+import Request from '@/util/request'
 import { API_SENSITIVE_LIST, API_SENSITIVE_SAVE, API_SENSITIVE_UPDATE, API_SENSITIVE_DELETE } from '@/constants/api'
 
 export function loadList (data) {

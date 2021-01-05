@@ -21,7 +21,7 @@ import SearchTool from './components/SearchTool'
 import SearchResult from './components/SearchResult'
 import Editor from './components/CommEditor'
 import { loadList } from '@/api/common'
-import DateUtil from '@/utils/date'
+import DateUtil from '@/util/date'
 export default {
   name: 'ChannelManager',
   data () {

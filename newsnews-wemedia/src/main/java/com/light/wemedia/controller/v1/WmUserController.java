@@ -30,4 +30,14 @@ public class WmUserController implements WmUserControllerApi {
         return service.findByName(name);
     }
 
+    /**
+     * 根据id查询自媒体用户
+     * @param id
+     * @return
+     */
+    @Override
+    public WmUser findWmUserById(Long id){
+        return service.getById(id);
+    };
+
 }

@@ -1,4 +1,4 @@
-import Request from '@/utils/request'
+import Request from '@/util/request'
 import { API_ARTICLE_UP, API_ARTICLE_DOWN } from '@/constants/api'
 
 // 下架
