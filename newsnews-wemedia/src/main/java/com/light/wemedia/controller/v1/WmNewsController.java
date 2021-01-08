@@ -1,14 +1,19 @@
 package com.light.wemedia.controller.v1;
 
 import com.light.apis.wemedia.WmNewsControllerApi;
+import com.light.model.admin.dtos.NewsAuthDto;
+import com.light.model.common.dtos.PageResponseResult;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.common.enums.AppHttpCodeEnum;
 import com.light.model.wemedia.dtos.WmNewsDto;
 import com.light.model.wemedia.dtos.WmNewsPageReqDto;
 import com.light.model.wemedia.pojos.WmNews;
+import com.light.model.wemedia.vo.WmNewsVo;
 import com.light.wemedia.service.WmNewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 自媒体文章控制层
@@ -103,6 +108,38 @@ public class WmNewsController implements WmNewsControllerApi {
     public ResponseResult updateWmNews(WmNews wmNews) {
         wmNewsService.updateById(wmNews);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    /**
+     * 查询需要发布的文章列表
+     * @return
+     */
+    @GetMapping("/findRelease")
+    @Override
+    public List<Integer> findRelease() {
+        return wmNewsService.findRelease();
+    }
+
+    /**
+     * 分页查询文章信息
+     * @param dto
+     * @return
+     */
+    @PostMapping("/findList")
+    @Override
+    public PageResponseResult findList(@RequestBody NewsAuthDto dto) {
+        return wmNewsService.findListAndPage(dto);
+    }
+
+    /**
+     * 查询文章详情
+     * @param id
+     * @return
+     */
+    @GetMapping("/find_news_vo/{id}")
+    @Override
+    public WmNewsVo findWmNewsVo(@PathVariable Integer id) {
+        return wmNewsService.findWmNewsVo(id);
     }
 
 }

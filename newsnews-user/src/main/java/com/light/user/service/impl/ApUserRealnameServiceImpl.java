@@ -18,6 +18,7 @@ import com.light.user.feign.WemediaFeign;
 import com.light.user.mapper.ApUserMapper;
 import com.light.user.mapper.ApUserRealnameMapper;
 import com.light.user.service.ApUserRealnameService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -77,7 +78,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
      * @param status
      * @return
      */
-    @Transactional
+    @GlobalTransactional
     @Override
     public ResponseResult updateStatusById(AuthDto dto, Short status) {
 
@@ -102,6 +103,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
         //认证通过添加自媒体账号和作者账号
         //判断传入的用户审核信息是否通过
         if(status.equals(UserConstants.PASS_AUTH)){
+            //创建自媒体账户，创建作者信息
             ResponseResult createResult = createWmUserAndAuthor(dto);
             if (createResult != null) {
                 return createResult;
@@ -117,6 +119,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
      * @param dto
      * @return
      */
+    @GlobalTransactional
     public ResponseResult createWmUserAndAuthor(AuthDto dto){
         //添加自媒体账号，查询ap_user表中的信息封装到wmUser中
         ApUserRealname aur = getById(dto.getId());
@@ -155,6 +158,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
      * 创建自媒体账号
      * @param wmUser
      */
+    @GlobalTransactional
     private void createAuthor(WmUser wmUser){
         //获得用户ID
         Integer apUserId = wmUser.getApUserId();

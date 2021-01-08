@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: newsnews-admin
+  # kafka配置
+  kafka:
+    bootstrap-servers: 192.168.200.130:9092
+    consumer:
+      group-id: ${spring.application.name}-kafka-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -14,6 +21,10 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.86.130:8848
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}_tx_group
+
   # redis配置
   redis:
     host: 192.168.86.130
@@ -24,3 +35,15 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
   type-aliases-package: com.light.model.admin.pojos
+
+# 图片访问ip，添加自定义的图片访问ip
+fdfs:
+  url: http://192.168.86.130/
+
+# xxljob分布式任务调度平台配置
+xxljob:
+  admin:
+    addresses: http://192.168.86.130:9080/xxl-job-admin
+  executor:
+    appname: newsnews-admin-executor
+    port: 9999

@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: newsnews-wemedia
+  # kafka的配置
+  kafka:
+    bootstrap-servers: 192.168.200.129:9092
+    producer:
+      retries: 10
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
   cloud:
     nacos:
       discovery:

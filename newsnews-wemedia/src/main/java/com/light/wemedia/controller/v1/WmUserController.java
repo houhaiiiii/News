@@ -1,6 +1,6 @@
 package com.light.wemedia.controller.v1;
 
-import com.light.apis.user.WmUserControllerApi;
+import com.light.apis.wemedia.WmUserControllerApi;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.wemedia.pojos.WmUser;
 import com.light.wemedia.service.WmUserService;

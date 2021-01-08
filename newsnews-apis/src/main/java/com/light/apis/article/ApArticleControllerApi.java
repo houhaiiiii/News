@@ -9,5 +9,5 @@ public interface ApArticleControllerApi {
      * @param apArticle
      * @return
      */
-    public ApArticle saveArticle(ApArticle apArticle);
+    ApArticle saveArticle(ApArticle apArticle);
 }

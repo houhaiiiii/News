@@ -1,10 +1,15 @@
 package com.light.apis.wemedia;
 
+import com.light.model.admin.dtos.NewsAuthDto;
+import com.light.model.common.dtos.PageResponseResult;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.wemedia.dtos.WmNewsDto;
 import com.light.model.wemedia.dtos.WmNewsPageReqDto;
 import com.light.model.wemedia.pojos.WmNews;
+import com.light.model.wemedia.vo.WmNewsVo;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * 自媒体文章接口
@@ -59,5 +64,25 @@ public interface WmNewsControllerApi {
      * @return
      */
     ResponseResult updateWmNews(WmNews wmNews);
+
+    /**
+     * 查询需要发布的文章id列表
+     * @return
+     */
+    List<Integer> findRelease();
+
+    /**
+     * 查询文章列表
+     * @param dto
+     * @return
+     */
+    public PageResponseResult findList(NewsAuthDto dto);
+
+    /**
+     * 查询文章详情
+     * @param id
+     * @return
+     */
+    public WmNewsVo findWmNewsVo(Integer id) ;
 
 }

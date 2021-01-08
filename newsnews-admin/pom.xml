@@ -35,6 +35,12 @@
             <artifactId>newsnews-apis</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.light</groupId>
+            <artifactId>newsnews-seata</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- Spring boot starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -38,7 +38,6 @@ public class WmUserServiceImpl extends ServiceImpl<WmUserMapper, WmUser> impleme
      * @param wmUser
      * @return
      */
-    @GlobalTransactional
     @Override
     public ResponseResult insert(WmUser wmUser) {
         //校验参数

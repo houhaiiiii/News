@@ -7,6 +7,16 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.86.130:8848
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}_tx_group
+  # kafka配置
+  kafka:
+    bootstrap-servers: 192.168.86.130:9092
+    consumer:
+      group-id: ${spring.application.name}-kafka-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.86.130:3307/newsnews_article?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
@@ -17,6 +27,8 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
   type-aliases-package: com.light.model.article.pojos
+  # 配置数据中心id和机器id
   global-config:
     datacenter-id: 1
     worker-id: 1
+

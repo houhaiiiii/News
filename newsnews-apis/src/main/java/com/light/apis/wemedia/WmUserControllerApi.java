@@ -1,4 +1,4 @@
-package com.light.apis.user;
+package com.light.apis.wemedia;
 
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.wemedia.pojos.WmUser;

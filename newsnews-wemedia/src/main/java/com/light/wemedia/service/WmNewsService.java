@@ -1,10 +1,15 @@
 package com.light.wemedia.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.light.model.admin.dtos.NewsAuthDto;
+import com.light.model.common.dtos.PageResponseResult;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.wemedia.dtos.WmNewsDto;
 import com.light.model.wemedia.dtos.WmNewsPageReqDto;
 import com.light.model.wemedia.pojos.WmNews;
+import com.light.model.wemedia.vo.WmNewsVo;
+
+import java.util.List;
 
 public interface WmNewsService extends IService<WmNews> {
 
@@ -43,5 +48,25 @@ public interface WmNewsService extends IService<WmNews> {
      * @return
      */
     ResponseResult downOrUp(WmNewsDto dto);
+
+    /**
+     * 查询需要发布的文章id列表
+     * @return
+     */
+    List<Integer> findRelease();
+
+    /**
+     * 分页查询文章信息
+     * @param dto
+     * @return
+     */
+    public PageResponseResult findListAndPage(NewsAuthDto dto);
+
+    /**
+     * 查询文章详情
+     * @param id
+     * @return
+     */
+    WmNewsVo findWmNewsVo(Integer id);
 
 }

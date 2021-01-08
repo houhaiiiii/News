@@ -17,6 +17,7 @@ import com.light.utils.threadlocal.WmThreadLocalUtils;
 import com.light.wemedia.mapper.WmMaterialMapper;
 import com.light.wemedia.mapper.WmNewsMaterialMapper;
 import com.light.wemedia.service.WmMaterialService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -162,6 +163,12 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
+    /**
+     * 更新状态
+     * @param id
+     * @param type
+     * @return
+     */
     @Override
     public ResponseResult updateStatus(Integer id, Short type) {
         //1.检查参数

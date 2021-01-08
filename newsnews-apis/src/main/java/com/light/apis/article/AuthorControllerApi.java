@@ -25,4 +25,11 @@ public interface AuthorControllerApi {
      */
     public ResponseResult save(@RequestBody ApAuthor apAuthor);
 
+    /**
+     * 根据名称查询作者
+     * @param name
+     * @return
+     */
+    public ApAuthor findByName(@PathVariable("id") String name);
+
 }

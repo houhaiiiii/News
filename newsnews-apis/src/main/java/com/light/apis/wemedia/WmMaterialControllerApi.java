@@ -4,6 +4,10 @@ import com.light.model.common.dtos.ResponseResult;
 import com.light.model.wemedia.dtos.WmMaterialDto;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * 自媒体素材控制层接口
+ * @author houhai
+ */
 public interface WmMaterialControllerApi {
 
     /**
