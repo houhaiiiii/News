@@ -5,7 +5,7 @@ spring:
     name: newsnews-wemedia
   # kafka的配置
   kafka:
-    bootstrap-servers: 192.168.200.129:9092
+    bootstrap-servers: 192.168.86.130:9092
     producer:
       retries: 10
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
