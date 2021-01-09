@@ -87,7 +87,7 @@ export default {
       }
       const res = await saveData(param)
 
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.dialogFormVisible = false
         this.submitSuccess()
         this.$message({ type: 'success', message: '操作成功！' })
@@ -105,7 +105,7 @@ export default {
       }
       const res = await updateData(param)
 
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.dialogFormVisible = false
         this.submitSuccess()
         this.$message({ type: 'success', message: '操作成功！' })

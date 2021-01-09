@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/utils/request'
 import { API_NEWS_AUTH_LIST, API_NEWS_AUTH_ONE, API_NEWS_AUTH_PASS, API_NEWS_AUTH_FAIL } from '@/constants/api'
 
 export function authList (data) {

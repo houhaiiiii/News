@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 import { updateData,delData } from '@/api/channel'
 
 export default {
@@ -124,7 +124,7 @@ export default {
       }
       const res = await updateData(param)
 
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.dialogFormVisible = false
         this.submitSuccess()
         this.$message({ type: 'success', message: '操作成功！' })
@@ -135,7 +135,7 @@ export default {
     async delChannel (id) {
       const res = await delData(id)
 
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.dialogFormVisible = false
         this.submitSuccess()
         this.$message({ type: 'success', message: '删除成功！' })

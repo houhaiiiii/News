@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 export default {
   props: ['statusList', 'host', 'authList', 'pageSize', 'total', 'changePage', 'authPassRealName', 'authFailRealName'],
   data () {

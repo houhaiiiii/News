@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/utils/request'
 import { API_USERPROFILE, API_USERUPDATEPROFILE, API_HEAD } from '@/constants/api'
 
 // 获取用户个人信息

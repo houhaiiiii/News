@@ -346,6 +346,7 @@ public class WemediaNewsAutoScanServiceImpl implements WemediaNewsAutoScanServic
      * @return
      */
     private ApArticle saveArticle(WmNews wmNews) {
+
         ApArticle apArticle = new ApArticle();
         apArticle.setTitle(wmNews.getTitle());
         apArticle.setLayout(wmNews.getType());

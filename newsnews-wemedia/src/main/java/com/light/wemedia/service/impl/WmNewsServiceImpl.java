@@ -137,7 +137,7 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
             //[dfjksdjfdfj.jpg,sdlkjfskld.jpg]
             wmNews.setImages(dto.getImages().toString()
                     .replace("[", "")
-                    .replace("", "]")
+                    .replace("]", "")
                     .replace(fileServerUrl, "")
                     .replace(" ", "")
             );
@@ -322,7 +322,7 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         }
 
         //发送消息
-        if (flag) {
+        if(flag){
             kafkaTemplate.send(NewsAutoScanConstants.WM_NEWS_AUTO_SCAN_TOPIC,JSON.toJSONString(wmNews.getId()));
         }
 
@@ -404,6 +404,11 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         }
 
         //3.判断文章是否发布
+        if(!wmNews.getStatus().equals(WmNews.Status.PUBLISHED.getCode())){
+            return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST,"当前文章不是发布状态，不能上下架");
+        }
+
+        //4.修改文章状态，同步到app端（后期做）TODO
         if(dto.getEnable() != null && dto.getEnable() > -1 && dto.getEnable() < 2){
 
             if(wmNews.getArticleId()!=null){

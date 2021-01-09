@@ -38,8 +38,8 @@
 
 <script>
 import Hamburger from '@/components/Hamburger/index.vue'
-import { getUser, clearUser } from '@/util/store'
-import emitter from '@/util/event'
+import { getUser, clearUser } from '@/utils/store'
+import emitter from '@/utils/event'
 export default {
   components: {
     Hamburger

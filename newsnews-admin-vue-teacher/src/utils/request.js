@@ -2,7 +2,7 @@ import axios from 'axios'
 import BigInt from 'json-bigint'
 import Router from '@/router'
 import { Message } from 'element-ui'
-import { getUser, setUser } from '@/util/store'
+import { getUser, setUser } from '@/utils/store'
 // import LoadingManage from './loading'
 // create an axios instance
 const service = axios.create({

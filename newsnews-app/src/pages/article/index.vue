@@ -119,7 +119,7 @@
             },
             loadInfo : function(){
                 Api.loadinfo(this.id).then((d)=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         this.config = d.data['config']
                         let temp = d.data['content']
                         if(temp){
@@ -138,7 +138,7 @@
             },
             loadBehavior : function(){
                 Api.loadbehavior(this.id,this.authorId).then((d)=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         this.relation = d.data
                     }else{
                         modal.toast({message: d.error_message,duration: 3})
@@ -150,7 +150,7 @@
             // 点赞
             like : function(){
                 Api.like({articleId:this.id,operation:this.relation.islike?1:0}).then(d=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         this.relation.islike = !this.relation.islike
                         let message = (this.relation.islike?"点赞":"取消点赞")+"操作成功！";
                         modal.toast({ message:message,duration:3})
@@ -164,7 +164,7 @@
             // 不喜欢
             unlike : function(){
                 Api.unlike({articleId:this.id,type:this.relation.isunlike?1:0}).then(d=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         this.relation.isunlike = !this.relation.isunlike
                         let message = (this.relation.isunlike?"不喜欢":"取消不喜欢")+"操作成功！";
                         modal.toast({ message:message,duration:3})
@@ -178,7 +178,7 @@
             // 分享
             share : function(type){
                 Api.share({articleId:this.id,type:type}).then(d=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         modal.toast({message: '分享成功',duration: 3})
                     }else{
                         modal.toast({message: d.error_message,duration: 3})
@@ -190,7 +190,7 @@
             // 收藏
             collection : function(){
                 Api.collection({articleId:this.id,publishedTime:this.date,operation:this.relation.iscollection?1:0}).then(d=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         this.relation.iscollection = !this.relation.iscollection
                         let message = (this.relation.iscollection?"收藏":"取消收藏")+"操作成功！";
                         modal.toast({ message:message,duration:3})
@@ -213,7 +213,7 @@
             // 关注
             follow : function(){
                 Api.follow({articleId:this.id,authorId:this.authorId,operation:this.relation.isfollow?1:0}).then(d=>{
-                    if(d.code==0){
+                    if(d.code==200){
                         this.relation.isfollow = !this.relation.isfollow
                         modal.toast({message:this.relation.isfollow?'成功关注':'成功取消关注',duration: 3})
                     }else{

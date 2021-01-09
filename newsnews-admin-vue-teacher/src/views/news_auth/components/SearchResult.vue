@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 import { authPass, authFail } from '@/api/news_auth'
 export default {
   props: ['list', 'pageSize', 'total', 'changePage', 'submitSuccess'],
@@ -159,7 +159,7 @@ export default {
         status: 4
       }
       const res = await authPass(params)
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.submitSuccess()
         this.$message({ type: 'success', message: '操作成功！' })
       } else {
@@ -186,7 +186,7 @@ export default {
         params.msg = value
 
         const res = await authFail(params)
-        if (res.code === 0) {
+        if (res.code === 200) {
           this.submitSuccess()
           this.$message({ type: 'success', message: '操作成功！' })
         } else {

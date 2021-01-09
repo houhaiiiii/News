@@ -95,7 +95,7 @@
 
 <script>
 import { getUserProfile, updateUserProfile, updateUserHead } from '@/api/user'
-import { setUser } from '@/util/store'
+import { setUser } from '@/utils/store'
 
 export default {
   name: 'ContentManage',

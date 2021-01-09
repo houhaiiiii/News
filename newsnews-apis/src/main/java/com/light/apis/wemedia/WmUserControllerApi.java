@@ -28,6 +28,6 @@ public interface WmUserControllerApi {
      * @param id
      * @return
      */
-    public WmUser findWmUserById(Long id);
+    public WmUser findWmUserById(Integer id);
 
 }

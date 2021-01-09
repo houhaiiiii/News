@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/utils/request'
 import { API_AUTH_LIST, API_AUTH_PASS, API_AUTH_FAIL } from '@/constants/api'
 
 export function findAuthList (data) {

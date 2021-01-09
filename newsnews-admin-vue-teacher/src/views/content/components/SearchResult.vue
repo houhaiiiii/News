@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 import { down, up } from '@/api/content'
 export default {
   props: ['host', 'list', 'fileds', 'table', 'pageSize', 'total', 'changePage', 'changeStatus', 'editData', 'viewData'],
@@ -107,7 +107,7 @@ export default {
       let res
       if (status === 1) res = await down(params)
       else res = await up(params)
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.changeStatus(index, status)
         this.$message({ type: 'success', message: '操作成功！' })
       } else {

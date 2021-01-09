@@ -115,7 +115,7 @@ export default {
     },
     async submitToBack (param) {
       const res = await updateData(param)
-      if (res.code == 0) {
+      if (res.code == 200) {
         this.dialogFormVisible = false
         this.submitSuccess()
         this.$message({ type: 'success', message: this.getTitle() + '操作成功！' })

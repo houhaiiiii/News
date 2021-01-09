@@ -34,7 +34,7 @@ import Statist from './components/Statist.vue'
 import LineChart from './components/LineChart.vue'
 import DoughnutChart from './components/DoughnutChart.vue'
 import { getNewsStatistics } from '@/api/content'
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 export default {
   name: 'ContentManage',
   data () {

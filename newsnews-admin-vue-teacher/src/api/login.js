@@ -1,5 +1,5 @@
-import request from '@/util/request'
-import { setUser } from '@/util/store'
+import request from '@/utils/request'
+import { setUser } from '@/utils/store'
 import { API_USERAUTH } from '@/constants/api'
 
 export function loginByUsername (name, password) {
@@ -13,8 +13,7 @@ export function loginByUsername (name, password) {
   }).then(result => {
     if (result.code === 200) {
       const temp = result.data
-      // 设置用户的个人数据
-      setUser({ name: temp.user.name, photo: null, token: temp.token })
+      setUser({ name: temp.user.name, photo: null, token: temp.token }) // 设置用户的个人数据
     }
     return result
   })

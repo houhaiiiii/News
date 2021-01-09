@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/utils/request'
 import { API_COMMENT_LIST, API_CLOSECOMMENTS, API_ADMIRECOMMENT, API_CANCELADMIRECOMMENT } from '@/constants/api'
 
 /** **获取评论列表*****/

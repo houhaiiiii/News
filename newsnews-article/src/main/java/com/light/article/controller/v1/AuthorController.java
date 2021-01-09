@@ -46,7 +46,7 @@ public class AuthorController implements AuthorControllerApi {
      * @param name
      * @return
      */
-    @PostMapping("/findByName/{name}")
+    @GetMapping("/findByName/{name}")
     @Override
     public ApAuthor findByName(@PathVariable("name") String name) {
         ApAuthor apAuthor = authorService.getOne(Wrappers.<ApAuthor>lambdaQuery().eq(ApAuthor::getName, name));

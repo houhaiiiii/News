@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 import { updateData } from '@/api/common'
 export default {
   props: ['host', 'list', 'fileds', 'table', 'pageSize', 'total', 'changePage', 'changeStatus', 'editData', 'viewData'],

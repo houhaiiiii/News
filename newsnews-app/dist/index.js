@@ -32142,7 +32142,7 @@ exports.default = {
             var _this2 = this;
 
             _api2.default.loadinfo(this.id).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     _this2.config = d.data['config'];
                     var temp = d.data['content'];
                     if (temp) {
@@ -32163,7 +32163,7 @@ exports.default = {
             var _this3 = this;
 
             _api2.default.loadbehavior(this.id, this.authorId).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     _this3.relation = d.data;
                 } else {
                     modal.toast({ message: d.error_message, duration: 3 });
@@ -32177,7 +32177,7 @@ exports.default = {
             var _this4 = this;
 
             _api2.default.like({ articleId: this.id, operation: this.relation.islike ? 1 : 0 }).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     _this4.relation.islike = !_this4.relation.islike;
                     var message = (_this4.relation.islike ? "点赞" : "取消点赞") + "操作成功！";
                     modal.toast({ message: message, duration: 3 });
@@ -32193,7 +32193,7 @@ exports.default = {
             var _this5 = this;
 
             _api2.default.unlike({ articleId: this.id, type: this.relation.isunlike ? 1 : 0 }).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     _this5.relation.isunlike = !_this5.relation.isunlike;
                     var message = (_this5.relation.isunlike ? "不喜欢" : "取消不喜欢") + "操作成功！";
                     modal.toast({ message: message, duration: 3 });
@@ -32207,7 +32207,7 @@ exports.default = {
         // 分享
         share: function share(type) {
             _api2.default.share({ articleId: this.id, type: type }).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     modal.toast({ message: '分享成功', duration: 3 });
                 } else {
                     modal.toast({ message: d.error_message, duration: 3 });
@@ -32221,7 +32221,7 @@ exports.default = {
             var _this6 = this;
 
             _api2.default.collection({ articleId: this.id, publishedTime: this.date, operation: this.relation.iscollection ? 1 : 0 }).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     _this6.relation.iscollection = !_this6.relation.iscollection;
                     var message = (_this6.relation.iscollection ? "收藏" : "取消收藏") + "操作成功！";
                     modal.toast({ message: message, duration: 3 });
@@ -32246,7 +32246,7 @@ exports.default = {
             var _this7 = this;
 
             _api2.default.follow({ articleId: this.id, authorId: this.authorId, operation: this.relation.isfollow ? 1 : 0 }).then(function (d) {
-                if (d.code == 0) {
+                if (d.code == 200) {
                     _this7.relation.isfollow = !_this7.relation.isfollow;
                     modal.toast({ message: _this7.relation.isfollow ? '成功关注' : '成功取消关注', duration: 3 });
                 } else {
@@ -33843,7 +33843,7 @@ exports.default = {
             var _this2 = this;
 
             _api2.default.load_search_history().then(function (data) {
-                if (data.code == 0) {
+                if (data.code == 200) {
                     _this2.data.history = data.data;
                 } else {
                     modal.toast({ message: data.error_message, duration: 3 });
@@ -33858,7 +33858,7 @@ exports.default = {
             modal.confirm({ message: '确认要删除吗？' }, function (button) {
                 if (button == 'OK') {
                     _api2.default.del_search(id).then(function (data) {
-                        if (data.code == 0) {
+                        if (data.code == 200) {
                             modal.toast({ message: '删除成功', duration: 3 });
                             _this.load_search_history();
                         } else {
@@ -33875,7 +33875,7 @@ exports.default = {
             var _this3 = this;
 
             _api2.default.associate_search(val).then(function (data) {
-                if (data.code == 0) {
+                if (data.code == 200) {
                     _this3.data.keyword = val;
                     _this3.showTip = true;
                     _this3.data.tip = data.data;
@@ -33887,7 +33887,7 @@ exports.default = {
             var _this4 = this;
 
             _api2.default.load_hot_keywords().then(function (data) {
-                if (data.code == 0) {
+                if (data.code == 200) {
                     // 需要转换数据格式
                     var newData = [];
                     var temp = [];
@@ -35188,7 +35188,7 @@ exports.default = {
                 });
             } else {
                 _api2.default.login(this.params).then(function (d) {
-                    if (d.code == 0) {
+                    if (d.code == 200) {
                         _this.$store.setToken(d.data.token);
                         _this.$router.push("/home");
                     } else {

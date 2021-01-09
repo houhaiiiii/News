@@ -26,7 +26,11 @@ public class ImageScan {
 
     public static void main(String[] args) throws Exception {
         IClientProfile profile = DefaultProfile
+<<<<<<< HEAD
                 .getProfile("cn-shanghai", "LTAI4G72Yasfas6A9J2x24chs6e", "sJ6RLjDdsgdsf284hEI5AhfgrChZh9ygj");
+=======
+                .getProfile("cn-shanghai", "LTAasdI4G72Ytasgd9J2x24chs6e", "sJ6RLjasfasdkA284hEfdsaI5AhfgrChZh9ygj");
+>>>>>>> 9dfb11386bdf60d0b32a5f0588507bb31da9068c
         DefaultProfile
                 .addEndpoint("cn-shanghai", "cn-shanghai", "Green", "green.cn-shanghai.aliyuncs.com");
         IAcsClient client = new DefaultAcsClient(profile);

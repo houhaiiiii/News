@@ -81,7 +81,7 @@ export default {
     // 获取粉丝性别分布
     async  getFansPortrait () {
       const result = await getFollowersPortrait()
-      if (result.code == 0) {
+      if (result.code == 200) {
         const portraits = result.data
         const ageItems = []
         const readItems = []

@@ -72,7 +72,7 @@ public class WmNewsController implements WmNewsControllerApi {
      */
     @GetMapping("/del_news/{id}")
     @Override
-    public ResponseResult delNews(Integer id) {
+    public ResponseResult delNews(@PathVariable("id") Integer id) {
         return wmNewsService.delNews(id);
     }
 
@@ -94,7 +94,7 @@ public class WmNewsController implements WmNewsControllerApi {
      */
     @GetMapping("/findOne/{id}")
     @Override
-    public WmNews findById(Integer id) {
+    public WmNews findById(@PathVariable("id") Integer id) {
         return wmNewsService.getById(id);
     }
 
@@ -105,7 +105,7 @@ public class WmNewsController implements WmNewsControllerApi {
      */
     @PostMapping("/update")
     @Override
-    public ResponseResult updateWmNews(WmNews wmNews) {
+    public ResponseResult updateWmNews(@RequestBody WmNews wmNews) {
         wmNewsService.updateById(wmNews);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
@@ -138,7 +138,7 @@ public class WmNewsController implements WmNewsControllerApi {
      */
     @GetMapping("/find_news_vo/{id}")
     @Override
-    public WmNewsVo findWmNewsVo(@PathVariable Integer id) {
+    public WmNewsVo findWmNewsVo(@PathVariable("id") Integer id) {
         return wmNewsService.findWmNewsVo(id);
     }
 

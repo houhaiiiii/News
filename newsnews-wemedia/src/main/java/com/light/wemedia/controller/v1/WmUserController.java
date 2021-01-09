@@ -35,8 +35,9 @@ public class WmUserController implements WmUserControllerApi {
      * @param id
      * @return
      */
+    @GetMapping("/findOne/{id}")
     @Override
-    public WmUser findWmUserById(Long id){
+    public WmUser findWmUserById(@PathVariable("id") Integer id){
         return service.getById(id);
     };
 

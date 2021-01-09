@@ -21,7 +21,7 @@ import SearchTool from './components/SearchTool.vue'
 import SearchResult from './components/SearchResult.vue'
 import Editor from '@/components/CommEditor.vue'
 import { loadList } from '@/api/common'
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 export default {
   name: 'ChannelManager',
   data () {

@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/utils/request'
 import { API_FANS, API_FOLLOWER_PORTRAIT, API_FANS_AVATAR, API_CHANGE_FOLLOW_STATE, API_GET_FANS_STATISTIC } from '@/constants/api'
 
 // 获取粉丝列表
@@ -23,7 +23,7 @@ export function getFollowersAvatar (data) {
     method: 'post',
     data
   }).then(result => {
-    if (result.code == 0) {
+    if (result.code == 200) {
       return result.data
     }
   })

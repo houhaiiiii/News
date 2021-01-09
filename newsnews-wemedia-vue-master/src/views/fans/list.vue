@@ -56,7 +56,7 @@ export default {
     async followOperate (data) {
       const result = await changeFollowState(data)
       if (data.switch_state) {
-        if (result.code == 0) {
+        if (result.code == 200) {
           this.$message({ type: 'success', message: '关注成功!' })
         } else {
           this.$message({ type: 'error', message: result.error_message })

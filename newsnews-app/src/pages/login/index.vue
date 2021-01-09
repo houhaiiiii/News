@@ -64,7 +64,7 @@
                     })
                 }else{
                     Api.login(this.params).then(d=>{
-                        if(d.code==0){
+                        if(d.code==200){
                             this.$store.setToken(d.data.token)
                             this.$router.push("/home")
                         }else{

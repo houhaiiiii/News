@@ -1,4 +1,4 @@
-import Request from '@/util/request'
+import Request from '@/utils/request'
 import {
   API_USERIMAGES_LIST, API_USERIMAGES_ADD,
   API_CHANNELS, API_ARTICLES, API_MODIFYIMAGE_COL,

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import DateUtil from '@/util/date'
+import DateUtil from '@/utils/date'
 import { deleteData } from '@/api/sensitive'
 export default {
   props: ['host', 'list', 'table', 'pageSize', 'total', 'changePage', 'editData', 'submitSuccess'],
@@ -97,7 +97,7 @@ export default {
     },
     async doDelete (id) {
       const res = await deleteData(id)
-      if (res.code === 0) {
+      if (res.code === 200) {
         this.submitSuccess()
         this.$message({ type: 'success', message: '操作成功！' })
       } else {
