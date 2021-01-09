@@ -2,7 +2,7 @@ server:
   port: 5001
 spring:
   application:
-    name: leadnews-app-gateway
+    name: newsnews-app-gateway
   cloud:
     nacos:
       discovery:
@@ -18,10 +18,17 @@ spring:
             - PUT
             - DELETE
       routes:
-      #文章微服务
+      # 文章微服务路由设置
       - id: newsnews-article
         uri: lb://newsnews-article
         predicates:
         - Path=/article/**
         filters:
         - StripPrefix= 1
+      # 用户微服务路由设置
+      - id: newsnews-user
+          uri: lb://newsnews-user
+          predicates:
+          - Path=/user/**
+          filters:
+          - StripPrefix= 1
