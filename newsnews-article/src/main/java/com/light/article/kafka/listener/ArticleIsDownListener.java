@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.light.article.service.ApArticleConfigService;
-import com.light.common.constants.message.WmNewsMessageConstants;
+import com.light.common.constans.message.WmNewsMessageConstants;
 import com.light.model.article.pojos.ApArticleConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;

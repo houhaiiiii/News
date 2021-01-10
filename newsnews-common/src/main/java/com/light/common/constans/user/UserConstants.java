@@ -1,4 +1,4 @@
-package com.light.common.constants.user;
+package com.light.common.constans.user;
 
 /**
  * 用户审核状态码实体类

@@ -15,9 +15,10 @@ import com.light.model.article.pojos.ApAuthor;
  */
 @FeignClient(value = "newsnews-article",configuration = FeignConfig.class)
 public interface ArticleFeign {
+
     //           /api/v1/author/findByUserId/{id}
     @GetMapping("/api/v1/author/findByUserId/{id}")
-    public ResponseResult<ApAuthor> findByUserId(@PathVariable("id") Integer id);
+    public ApAuthor selectById(@PathVariable("id") Integer id);
 
     @PostMapping("/api/v1/author/save")
     public ResponseResult save(@RequestBody ApAuthor apAuthor);

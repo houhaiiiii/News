@@ -38,7 +38,7 @@ Api.prototype = {
         let url = this.vue.$config.urls.get('like_behavior')
         return this.vue.$store.getEquipmentId().then(equipmentId=>{
             return new Promise((resolve, reject) => {
-                this.vue.$request.post(url,{equipmentId:equipmentId,entry_id:data.articleId,type:0,operation:data.operation}).then((d)=>{
+                this.vue.$request.post(url,{equipmentId:equipmentId,articleId:data.articleId,type:0,operation:data.operation}).then((d)=>{
                     resolve(d);
                 }).catch((e)=>{
                     reject(e);

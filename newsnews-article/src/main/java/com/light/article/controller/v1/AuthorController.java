@@ -53,4 +53,15 @@ public class AuthorController implements AuthorControllerApi {
         return apAuthor;
     }
 
+    /**
+     * 根据Id查询作者
+     * @param id
+     * @return
+     */
+    @GetMapping("/one/{id}")
+    @Override
+    public ApAuthor findById(@PathVariable("id") Integer id) {
+        return authorService.getById(id);
+    }
+
 }

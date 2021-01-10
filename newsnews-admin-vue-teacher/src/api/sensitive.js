@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_SENSITIVE_LIST, API_SENSITIVE_SAVE, API_SENSITIVE_UPDATE, API_SENSITIVE_DELETE } from '@/constants/api'
+import { API_SENSITIVE_LIST, API_SENSITIVE_SAVE, API_SENSITIVE_UPDATE, API_SENSITIVE_DELETE } from '@/constans/api'
 
 export function loadList (data) {
   return new Request({

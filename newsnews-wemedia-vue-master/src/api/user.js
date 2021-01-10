@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_USERPROFILE, API_USERUPDATEPROFILE, API_HEAD } from '@/constants/api'
+import { API_USERPROFILE, API_USERUPDATEPROFILE, API_HEAD } from '@/constans/api'
 
 // 获取用户个人信息
 export function getUserProfile () {

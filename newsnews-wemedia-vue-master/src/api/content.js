@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_ARTICLES_INFO, API_STATISTICS_NEWS, API_ARTICLES_UPDOWN, API_SEARCHARTICELS, API_ARTICLES_DELETE } from '@/constants/api'
+import { API_ARTICLES_INFO, API_STATISTICS_NEWS, API_ARTICLES_UPDOWN, API_SEARCHARTICELS, API_ARTICLES_DELETE } from '@/constans/api'
 
 // 获取统计数据
 export function getNewsStatistics (data) {

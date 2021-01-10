@@ -1,7 +1,7 @@
 package com.light.user.controller.v1;
 
 import com.light.apis.user.ApUserRealnameControllerApi;
-import com.light.common.constants.user.UserConstants;
+import com.light.common.constans.user.UserConstants;
 import com.light.model.common.dtos.PageResponseResult;
 import com.light.model.common.dtos.ResponseResult;
 import com.light.model.user.dtos.AuthDto;

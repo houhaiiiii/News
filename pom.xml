@@ -23,6 +23,7 @@
         <module>newsnews-seata</module>
         <module>newsnews-wemedia-gateway</module>
         <module>newsnews-app-gateway</module>
+        <module>newsnews-behavior</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->

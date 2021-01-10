@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.light.common.constants.user.UserConstants;
+import com.light.common.constans.user.UserConstants;
 import com.light.model.article.pojos.ApAuthor;
 import com.light.model.common.dtos.PageResponseResult;
 import com.light.model.common.dtos.ResponseResult;
@@ -21,7 +21,6 @@ import com.light.user.service.ApUserRealnameService;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -163,9 +162,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
         //获得用户ID
         Integer apUserId = wmUser.getApUserId();
         //通过feign调用自媒体作者模块通过id查询账号
-        ResponseResult<ApAuthor> result = articleFeign.findByUserId(apUserId);
-
-        ApAuthor apAuthor = result.getData();
+        ApAuthor apAuthor = articleFeign.selectById(apUserId);
 
         //如果账号为空，则表示该用户没有注册，为其APP用户注册自媒体作者账号
         if (apAuthor == null) {

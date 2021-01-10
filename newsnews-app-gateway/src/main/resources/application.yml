@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: newsnews-app-gateway
+  # 配置redis
+  redis:
+    host: 192.168.86.130
+    port: 6379
   cloud:
     nacos:
       discovery:
@@ -27,8 +31,15 @@ spring:
         - StripPrefix= 1
       # 用户微服务路由设置
       - id: newsnews-user
-          uri: lb://newsnews-user
-          predicates:
-          - Path=/user/**
-          filters:
-          - StripPrefix= 1
+        uri: lb://newsnews-user
+        predicates:
+        - Path=/user/**
+        filters:
+        - StripPrefix= 1
+      #行为微服务
+      - id: newsnews-behavior
+        uri: lb://newsnews-behavior
+        predicates:
+        - Path=/behavior/**
+        filters:
+        - StripPrefix= 1

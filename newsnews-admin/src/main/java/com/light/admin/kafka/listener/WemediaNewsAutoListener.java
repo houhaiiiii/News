@@ -1,7 +1,7 @@
 package com.light.admin.kafka.listener;
 
 import com.light.admin.service.WemediaNewsAutoScanService;
-import com.light.common.constants.message.NewsAutoScanConstants;
+import com.light.common.constans.message.NewsAutoScanConstants;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;

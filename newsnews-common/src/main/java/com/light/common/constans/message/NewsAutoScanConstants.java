@@ -1,4 +1,4 @@
-package com.light.common.constants.message;
+package com.light.common.constans.message;
 
 public class NewsAutoScanConstants {
 

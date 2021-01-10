@@ -93,7 +93,7 @@ const productionConfig = webpackMerge(commonConfig[0], {
   plugins: [
     /**
      * Plugin: webpack.DefinePlugin
-     * Description: The DefinePlugin allows you to create global constants which can be configured at compile time.
+     * Description: The DefinePlugin allows you to create global constans which can be configured at compile time.
      *
      * See: https://webpack.js.org/plugins/define-plugin/
      */
@@ -184,7 +184,7 @@ const weexConfig = webpackMerge(commonConfig[1], {
   plugins: [
     /**
      * Plugin: webpack.DefinePlugin
-     * Description: The DefinePlugin allows you to create global constants which can be configured at compile time.
+     * Description: The DefinePlugin allows you to create global constans which can be configured at compile time.
      *
      * See: https://webpack.js.org/plugins/define-plugin/
      */

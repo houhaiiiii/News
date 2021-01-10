@@ -2,7 +2,7 @@ package com.light.model.common.enums;
 
 public enum AppHttpCodeEnum {
 
-    // 成功段0
+    // 成功段200
     SUCCESS(200,"操作成功"),
 
     // 登录段1~50

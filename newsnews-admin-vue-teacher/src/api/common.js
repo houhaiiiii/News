@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_COMMON_LIST, API_COMMON_UPDATE, API_COMMON_DELETE } from '@/constants/api'
+import { API_COMMON_LIST, API_COMMON_UPDATE, API_COMMON_DELETE } from '@/constans/api'
 
 export function loadList (data) {
   return new Request({
