@@ -22,7 +22,11 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
         IClientProfile profile = DefaultProfile
+<<<<<<< HEAD
                 .getProfile("cn-shanghai", "LTAI4G72Yt23A9J2x24chs6e", "sJ6RLjDjkA284hEI5asdfgrChZh9ygj");
+=======
+                .getProfile("cn-shanghai", "acckey", "123456");
+>>>>>>> a5f1a9c4096fe2269e74b1a85c833a49ae81635b
         DefaultProfile
                 .addEndpoint("cn-shanghai", "cn-shanghai", "Green", "green.cn-shanghai.aliyuncs.com");
         IAcsClient client = new DefaultAcsClient(profile);
