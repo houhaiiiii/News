@@ -11,7 +11,7 @@
 
 <script>
 import SidebarItem from './SidebarItem.vue'
-import { MenuData } from '@/constans/menus'
+import { MenuData } from '@/constants/menus'
 export default {
   props: ['collapse'],
   components: { SidebarItem },

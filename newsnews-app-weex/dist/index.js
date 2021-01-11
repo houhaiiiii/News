@@ -3453,7 +3453,7 @@ exports.default = BindEnv;
 	    // Constants table
 	    var T = [];
 
-	    // Compute constans
+	    // Compute constants
 	    (function () {
 	        for (var i = 0; i < 64; i++) {
 	            T[i] = (Math.abs(Math.sin(i + 1)) * 0x100000000) | 0;
@@ -4253,7 +4253,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 	            var oKeyWords = oKey.words;
 	            var iKeyWords = iKey.words;
 
-	            // XOR keys with pad constans
+	            // XOR keys with pad constants
 	            for (var i = 0; i < hasherBlockSize; i++) {
 	                oKeyWords[i] ^= 0x5c5c5c5c;
 	                iKeyWords[i] ^= 0x36363636;
@@ -4467,11 +4467,11 @@ module.exports = __vue_exports__
 	    var Hasher = C_lib.Hasher;
 	    var C_algo = C.algo;
 
-	    // Initialization and round constans tables
+	    // Initialization and round constants tables
 	    var H = [];
 	    var K = [];
 
-	    // Compute constans
+	    // Compute constants
 	    (function () {
 	        function isPrime(n) {
 	            var sqrtN = Math.sqrt(n);
@@ -6265,7 +6265,7 @@ module.exports = function(obj, sep, eq, name) {
 
 	    // Compute Constants
 	    (function () {
-	        // Compute rho offset constans
+	        // Compute rho offset constants
 	        var x = 1, y = 0;
 	        for (var t = 0; t < 24; t++) {
 	            RHO_OFFSETS[x + 5 * y] = ((t + 1) * (t + 2) / 2) % 64;
@@ -6276,14 +6276,14 @@ module.exports = function(obj, sep, eq, name) {
 	            y = newY;
 	        }
 
-	        // Compute pi index constans
+	        // Compute pi index constants
 	        for (var x = 0; x < 5; x++) {
 	            for (var y = 0; y < 5; y++) {
 	                PI_INDEXES[x + 5 * y] = y + ((2 * x + 3 * y) % 5) * 5;
 	            }
 	        }
 
-	        // Compute round constans
+	        // Compute round constants
 	        var LFSR = 0x01;
 	        for (var i = 0; i < 24; i++) {
 	            var roundConstantMsw = 0;
@@ -7918,7 +7918,7 @@ module.exports = function(obj, sep, eq, name) {
 	    var BlockCipher = C_lib.BlockCipher;
 	    var C_algo = C.algo;
 
-	    // Permuted Choice 1 constans
+	    // Permuted Choice 1 constants
 	    var PC1 = [
 	        57, 49, 41, 33, 25, 17, 9,  1,
 	        58, 50, 42, 34, 26, 18, 10, 2,
@@ -7929,7 +7929,7 @@ module.exports = function(obj, sep, eq, name) {
 	        29, 21, 13, 5,  28, 20, 12, 4
 	    ];
 
-	    // Permuted Choice 2 constans
+	    // Permuted Choice 2 constants
 	    var PC2 = [
 	        14, 17, 11, 24, 1,  5,
 	        3,  28, 15, 6,  21, 10,
@@ -7941,10 +7941,10 @@ module.exports = function(obj, sep, eq, name) {
 	        46, 42, 50, 36, 29, 32
 	    ];
 
-	    // Cumulative bit shift constans
+	    // Cumulative bit shift constants
 	    var BIT_SHIFTS = [1,  2,  4,  6,  8,  10, 12, 14, 15, 17, 19, 21, 23, 25, 27, 28];
 
-	    // SBOXes and round permutation constans
+	    // SBOXes and round permutation constants
 	    var SBOX_P = [
 	        {
 	            0x0: 0x808200,
@@ -33547,7 +33547,7 @@ Api.prototype = {
         var url = this.vue.$config.urls.get('like_behavior');
         return this.vue.$store.getEquipmentId().then(function (equipmentId) {
             return new Promise(function (resolve, reject) {
-                _this3.vue.$request.post(url, { equipmentId: equipmentId, entry_id: data.articleId, type: 0, operation: data.operation }).then(function (d) {
+                _this3.vue.$request.post(url, { equipmentId: equipmentId, articleId: data.articleId, type: 0, operation: data.operation }).then(function (d) {
                     resolve(d);
                 }).catch(function (e) {
                     reject(e);

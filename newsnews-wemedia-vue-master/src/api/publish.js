@@ -3,7 +3,7 @@ import {
   API_USERIMAGES_LIST, API_USERIMAGES_ADD,
   API_CHANNELS, API_ARTICLES, API_MODIFYIMAGE_COL,
   API_MODIFYIMAGE_COL_CANCEL, API_MODIFYIMAGE_DELETE
-} from '@/constans/api'
+} from '@/constants/api'
 // 拉取全部的素材图片
 export function getAllImgData (data) {
   return Request({

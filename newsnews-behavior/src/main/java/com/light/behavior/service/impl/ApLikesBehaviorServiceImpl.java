@@ -19,6 +19,10 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 
+/**
+ * 点赞或取消业务实现类
+ * @author houhai
+ */
 @Service
 public class ApLikesBehaviorServiceImpl extends ServiceImpl<ApLikesBehaviorMapper, ApLikesBehavior> implements ApLikesBehaviorService {
 

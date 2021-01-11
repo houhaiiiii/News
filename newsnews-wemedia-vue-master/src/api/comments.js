@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_COMMENT_LIST, API_CLOSECOMMENTS, API_ADMIRECOMMENT, API_CANCELADMIRECOMMENT } from '@/constans/api'
+import { API_COMMENT_LIST, API_CLOSECOMMENTS, API_ADMIRECOMMENT, API_CANCELADMIRECOMMENT } from '@/constants/api'
 
 /** **获取评论列表*****/
 export function getCommentList (data) {

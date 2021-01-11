@@ -8,6 +8,7 @@ import com.light.model.user.pojos.ApUser;
 import com.light.user.mapper.ApUserMapper;
 import com.light.user.service.ApUserLoginService;
 import com.light.utils.common.AppJwtUtil;
+import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -16,6 +17,7 @@ import org.springframework.util.DigestUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 用户登录业务实现类
@@ -64,9 +66,17 @@ public class ApUserLoginServiceImpl implements ApUserLoginService {
                 //设备ID为空直接返回错误信息
                 return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
             }
+
+            //获得jti
+            String token = AppJwtUtil.getToken(0L);
+            String jti = AppJwtUtil.getClaimsBody(token).get("jti", String.class);
+            //把JTI的token存到redis
+            redisTemplate.boundValueOps(jti).set(token,7,TimeUnit.DAYS);
+
             Map<String, Object> map = new HashMap<>();
-            //设置token
-            map.put("token", AppJwtUtil.getToken(0L));
+            //再把jti放到map集合返回给前端
+            map.put("token", jti);
+
             return ResponseResult.okResult(map);
         }
 

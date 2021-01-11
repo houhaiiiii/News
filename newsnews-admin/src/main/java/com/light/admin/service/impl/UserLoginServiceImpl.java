@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 用户登录业务实现类
+ * 运营端用户登录业务实现类
  * @author houhai
  */
 @Service

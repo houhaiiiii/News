@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 import { setUser } from '@/utils/store'
-import { API_USERAUTH } from '@/constans/api'
+import { API_USERAUTH } from '@/constants/api'
 
 export function loginByUsername (name, password) {
   const data = {

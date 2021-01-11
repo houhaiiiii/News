@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_FANS, API_FOLLOWER_PORTRAIT, API_FANS_AVATAR, API_CHANGE_FOLLOW_STATE, API_GET_FANS_STATISTIC } from '@/constans/api'
+import { API_FANS, API_FOLLOWER_PORTRAIT, API_FANS_AVATAR, API_CHANGE_FOLLOW_STATE, API_GET_FANS_STATISTIC } from '@/constants/api'
 
 // 获取粉丝列表
 export function getFollowers (data) {

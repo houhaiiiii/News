@@ -1,5 +1,5 @@
 import Request from '@/utils/request'
-import { API_ARTICLE_UP, API_ARTICLE_DOWN } from '@/constans/api'
+import { API_ARTICLE_UP, API_ARTICLE_DOWN } from '@/constants/api'
 
 // 下架
 export function down (data) {
