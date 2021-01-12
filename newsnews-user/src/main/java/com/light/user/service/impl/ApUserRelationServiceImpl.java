@@ -40,38 +40,48 @@ public class ApUserRelationServiceImpl implements ApUserRelationService {
 
     @Override
     public ResponseResult follow(UserRelationDto dto) {
-        //1.校验参数
+        //1.参数检查
         if (dto.getOperation() == null || dto.getOperation() < 0 || dto.getOperation() > 1) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
+
         if (dto.getAuthorId() == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_REQUIRE, "作者信息不能为空");
         }
 
         //2.获取作者
-        Integer followId = null;
-        ApAuthor apAuthor = articleFeign.selectById(dto.getAuthorId());
-        if (apAuthor != null) {
-            followId = apAuthor.getUserId();
-        }
-        if (followId == null) {
+        ApAuthor apAuthor = articleFeign.selectById(dto.getAuthorId()).getData();
+        if (apAuthor == null || apAuthor.getUserId() == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST, "关注人不存在");
+        }
+
+        Integer followId = apAuthor.getUserId();
+
+        //从线程中获取到userId
+        ApUser apUser = AppThreadLocalUtils.getUser();
+
+        if (apUser == null || apUser.getId() == 0) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
+        }
+
+        if (dto.getOperation() == 0) {
+            //3.如果当前操作是0 创建数据（app用户关注信息和app的用户粉丝信息）
+            followByUserId(apUser, followId, dto.getArticleId());
+
+            //记录关注文章的行为
+            FollowBehaviorDto followBehavior = new FollowBehaviorDto();
+            followBehavior.setFollowId(followId);
+            followBehavior.setArticleId(dto.getArticleId());
+            followBehavior.setUserId(apUser.getId());
+            //异步发送消息，保存关注行为
+            kafkaTemplate.send(FollowBehaviorConstants.FOLLOW_BEHAVIOR_TOPIC, JSON.toJSONString(followBehavior));
+
+            return ResponseResult.okResult("关注成功");
         } else {
+            //4.如果当前操作是1 删除数据（app用户关注信息和app的用户粉丝信息）
+            followCancelByUserId(apUser, followId);
 
-            ApUser apUser = AppThreadLocalUtils.getUser();
-            if (apUser != null) {
-
-                if (dto.getOperation() == 0) {
-                    //3.如果当前操作是0 创建数据（app用户关注信息和app的用户粉丝信息）
-                    return followByUserId(apUser, followId, dto.getArticleId());
-                } else {
-                    //4.如果当前操作是1 删除数据（app用户关注信息和app的用户粉丝信息）
-                    return followCancelByUserId(apUser, followId);
-                }
-
-            } else {
-                return ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
-            }
+            return ResponseResult.okResult("取消关注成功");
         }
 
     }

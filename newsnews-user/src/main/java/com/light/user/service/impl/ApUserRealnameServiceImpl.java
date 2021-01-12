@@ -162,7 +162,7 @@ public class ApUserRealnameServiceImpl extends ServiceImpl<ApUserRealnameMapper,
         //获得用户ID
         Integer apUserId = wmUser.getApUserId();
         //通过feign调用自媒体作者模块通过id查询账号
-        ApAuthor apAuthor = articleFeign.selectById(apUserId);
+        ApAuthor apAuthor = articleFeign.selectById(apUserId).getData();
 
         //如果账号为空，则表示该用户没有注册，为其APP用户注册自媒体作者账号
         if (apAuthor == null) {

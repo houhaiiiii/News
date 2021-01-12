@@ -44,11 +44,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         }
 
         //3.获取当前用户的请求头jwt信息
-        HttpHeaders headers = request.getHeaders();
-        //String token = headers.getFirst("token");
-
-        //因为之前登陆设置的带的是短表示，现在获取JTI短标识
-        String jti = headers.getFirst("token");
+        String jti = request.getHeaders().getFirst("token");
 
         //4.判断当前令牌是否存在
         if (StringUtils.isEmpty(jti)) {
@@ -62,22 +58,28 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
 
         try {
             //5.如果令牌存在，解析jwt令牌，判断该令牌是否合法，如果不合法，则向客户端返回错误信息
+
             //获得token的载荷
             Claims claims = AppJwtUtil.getClaimsBody(token);
+
             //判断token是否过期
             int result = AppJwtUtil.verifyToken(claims);
-            if (result == 0 || result == -1) {
-                //5.1 合法，则向header中重新设置userId
-                Integer id = (Integer) claims.get("id");
-                //日志记录
-                log.info("find userid:{} from uri:{}", id, request.getURI());
-                //重新把token设置到header中
-                ServerHttpRequest serverHttpRequest = request.mutate().headers(httpHeaders -> {
-                    httpHeaders.add("userId", id + "");
-                }).build();
 
-                exchange.mutate().request(serverHttpRequest).build();
+            if (result != 0 && result != -1) {
+                response.setStatusCode(HttpStatus.UNAUTHORIZED);
+                return response.setComplete();
             }
+
+            //5.1 合法，则向header中重新设置Id
+            Integer id = (Integer) claims.get("id");
+
+            //日志记录
+            log.info("find userid:{} from uri:{}", id, request.getURI());
+
+            //将用户ID保存到请求头中, 方便微服务追踪用户
+            ServerHttpRequest serverHttpRequest = request.mutate().headers(httpHeaders -> httpHeaders.add("userId", id + "")).build();
+            exchange.mutate().request(serverHttpRequest).build();
+
         } catch (Exception e) {
             e.printStackTrace();
             //向客户端返回错误提示信息

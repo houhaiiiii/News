@@ -41,7 +41,7 @@ public class AppTokenFilter extends GenericFilterBean {
             AppThreadLocalUtils.setUser(apUser);
         }
         //放行
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter(request, response);
     }
 
 }

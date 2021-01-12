@@ -65,6 +65,7 @@ public class UserLoginServiceImpl extends ServiceImpl<AdUserMapper, AdUser> impl
         String token = AppJwtUtil.getToken(adUser.getId().longValue());
         Claims claims = AppJwtUtil.getClaimsBody(token);
         Object jti = claims.get("jti");
+
         //将jti保存到redis
         redisTemplate.boundValueOps(jti).set(token,7, TimeUnit.DAYS);
         //将jti返回给用户

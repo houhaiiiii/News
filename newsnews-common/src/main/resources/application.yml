@@ -8,7 +8,11 @@ spring:
       enabled: true
   aop:
     proxy-target-class: true
+  data:
+    mongodb:
+      host: 192.168.86.130
+      port: 27017
+      dbname: newsnews-comment
 server:
   tomcat:
     uri-encoding: utf-8
-

@@ -18,7 +18,7 @@ public interface ArticleFeign {
 
     //           /api/v1/author/findByUserId/{id}
     @GetMapping("/api/v1/author/findByUserId/{id}")
-    public ApAuthor selectById(@PathVariable("id") Integer id);
+    public ResponseResult<ApAuthor> selectById(@PathVariable("id") Integer id);
 
     @PostMapping("/api/v1/author/save")
     public ResponseResult save(@RequestBody ApAuthor apAuthor);

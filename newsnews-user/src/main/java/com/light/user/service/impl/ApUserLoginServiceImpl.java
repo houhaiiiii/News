@@ -45,15 +45,27 @@ public class ApUserLoginServiceImpl implements ApUserLoginService {
             //用户登录
             ApUser dbUser = apUserMapper.selectOne(Wrappers.<ApUser>lambdaQuery().eq(ApUser::getPhone, dto.getPhone()));
             if (dbUser != null) {
+
+                //解析
                 String pswd = DigestUtils.md5DigestAsHex((dto.getPassword() + dbUser.getSalt()).getBytes());
+
                 if (dbUser.getPassword().equals(pswd)) {
                     Map<String, Object> map = new HashMap<>();
                     dbUser.setPassword("");
                     dbUser.setSalt("");
+
+                    //解析从过滤器传来的token
+                    String token = AppJwtUtil.getToken(dbUser.getId().longValue());
+                    String jti = AppJwtUtil.getClaimsBody(token).get("jti", String.class);
+                    //把JTI的token存到redis
+                    redisTemplate.boundValueOps(jti).set(token,7,TimeUnit.DAYS);
+
                     //将token设置到请求头
-                    map.put("token", AppJwtUtil.getToken(dbUser.getId().longValue()));
+                    map.put("token", jti);
                     map.put("user", dbUser);
+
                     return ResponseResult.okResult(map);
+
                 } else {
                     return ResponseResult.errorResult(AppHttpCodeEnum.LOGIN_PASSWORD_ERROR);
                 }

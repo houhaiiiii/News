@@ -24,6 +24,7 @@
         <module>newsnews-wemedia-gateway</module>
         <module>newsnews-app-gateway</module>
         <module>newsnews-behavior</module>
+        <module>newsnews-comment</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->
