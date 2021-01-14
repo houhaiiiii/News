@@ -43,3 +43,17 @@ spring:
         - Path=/behavior/**
         filters:
         - StripPrefix= 1
+      # 评论微服务
+      - id: newsnews-comment
+        uri: lb://newsnews-comment
+        predicates:
+        - Path=/comment/**
+        filters:
+        - StripPrefix= 1
+      #搜索微服务
+      - id: newsnews-search
+        uri: lb://newsnews-search
+        predicates:
+      - Path=/search/**
+        filters:
+      - StripPrefix= 1

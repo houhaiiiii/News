@@ -16,6 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 过滤器：
+ * 评论必须在登录的情况下才能发布，所以需要验证用户获取用户信息
+ * @author houhai
+ */
 @Order(1)
 @WebFilter(filterName = "appTokenFilter", urlPatterns = "/*")
 public class AppTokenFilter extends GenericFilterBean {

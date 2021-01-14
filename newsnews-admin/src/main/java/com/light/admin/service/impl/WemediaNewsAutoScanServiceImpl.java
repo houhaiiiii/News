@@ -1,5 +1,6 @@
 package com.light.admin.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.light.admin.feign.ArticleFeign;
 import com.light.admin.feign.WemediaFeign;
@@ -8,6 +9,7 @@ import com.light.admin.mapper.AdSensitiveMapper;
 import com.light.admin.service.WemediaNewsAutoScanService;
 import com.light.common.aliyun.GreeTextScan;
 import com.light.common.aliyun.GreenImageScan;
+import com.light.common.constans.message.WmNewsMessageConstants;
 import com.light.common.fastdfs.FastDFSClient;
 import com.light.model.admin.dtos.NewsAuthDto;
 import com.light.model.admin.pojos.AdChannel;
@@ -26,6 +28,7 @@ import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -289,7 +292,10 @@ public class WemediaNewsAutoScanServiceImpl implements WemediaNewsAutoScanServic
     }
 
     @Autowired
-    ArticleFeign articleFeign;
+    private ArticleFeign articleFeign;
+
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
 
     /**
      * 保存app文章相关的数据
@@ -306,7 +312,18 @@ public class WemediaNewsAutoScanServiceImpl implements WemediaNewsAutoScanServic
         //修改自媒体文章的状态为9
         updateWmNews(wmNews,(short)9,"审核通过");
 
-        //TODO es索引创建
+        //es索引创建 , 发现消息到MQ , 消费者监听到MQ中的消息, 然后入库
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("id", apArticle.getId());
+        map.put("publishTime", apArticle.getPublishTime());
+        map.put("layout", apArticle.getLayout());
+        map.put("images", apArticle.getImages());
+        map.put("authorId", apArticle.getAuthorId());
+        map.put("title", apArticle.getTitle());
+
+        kafkaTemplate.send(WmNewsMessageConstants.WM_NEWS_PUBLISH_TO_ES_TOPIC, JSON.toJSONString(map));
+
     }
 
     /**
@@ -338,7 +355,7 @@ public class WemediaNewsAutoScanServiceImpl implements WemediaNewsAutoScanServic
 
 
     @Autowired
-    AdChannelMapper adChannelMapper;
+    private AdChannelMapper adChannelMapper;
 
     /**
      * 保存文章

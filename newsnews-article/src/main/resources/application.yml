@@ -34,3 +34,7 @@ mybatis-plus:
 # 图片访问ip，添加自定义的图片访问ip
 fdfs:
   url: http://192.168.86.130/
+# 自定义elasticsearch连接配置
+elasticsearch:
+  host: 118.25.197.221
+  port: 9200

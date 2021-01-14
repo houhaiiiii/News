@@ -13,6 +13,7 @@ import com.light.model.common.enums.AppHttpCodeEnum;
 import com.light.model.user.pojos.ApUser;
 import com.light.utils.threadlocal.AppThreadLocalUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -20,6 +21,7 @@ import java.util.Date;
  * 用户收藏业务层
  * @author houhai
  */
+@Service
 public class ApCollectionServiceImpl extends ServiceImpl<ApCollectionMapper, ApCollection> implements ApCollectionService {
 
     @Autowired

@@ -10,4 +10,5 @@ public interface ApArticleCollectionControllerApi {
 
     @ApiOperation("收藏文章")
     public ResponseResult collect(CollectionBehaviorDto dto);
+
 }

@@ -31574,7 +31574,7 @@ exports.default = {
     methods: {
         formatImage: function formatImage(img) {
             if (!img.startsWith('http')) {
-                return "http://192.168.200.130/" + img;
+                return "http://192.168.86.130/" + img;
             } else {
                 return img;
             }
@@ -31763,7 +31763,7 @@ exports.default = {
     methods: {
         formatImage: function formatImage(img) {
             if (!img.startsWith('http')) {
-                return "http://192.168.200.130/" + img;
+                return "http://192.168.86.130/" + img;
             } else {
                 return img;
             }

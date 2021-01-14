@@ -1,0 +1,14 @@
+package com.light.apis.user;
+
+import com.light.model.user.pojos.ApUser;
+
+public interface ApUserControllerApi {
+
+    /**
+     * 根据id查询app端用户信息
+     * @param id
+     * @return
+     */
+    ApUser findUserById(Integer id);
+
+}
