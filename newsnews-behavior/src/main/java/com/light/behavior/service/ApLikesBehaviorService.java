@@ -10,7 +10,7 @@ import com.light.model.common.dtos.ResponseResult;
  * APP点赞行为表 服务类
  * </p>
  *
- * @author itlight
+ * @author houhai
  */
 public interface ApLikesBehaviorService extends IService<ApLikesBehavior> {
     /**
@@ -19,5 +19,14 @@ public interface ApLikesBehaviorService extends IService<ApLikesBehavior> {
      * @return
      */
     public ResponseResult like(LikesBehaviorDto dto);
+
+    /**
+     * 根据行为实体id和文章id查询点赞行为
+     * @param articleId
+     * @param entryId
+     * @param type
+     * @return
+     */
+    public ApLikesBehavior findLikeByArticleIdAndEntryId(Long articleId,Integer entryId,Short type);
 
 }

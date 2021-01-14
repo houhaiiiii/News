@@ -36,7 +36,7 @@ spring:
         - Path=/user/**
         filters:
         - StripPrefix= 1
-      #行为微服务
+      # 行为微服务路由
       - id: newsnews-behavior
         uri: lb://newsnews-behavior
         predicates:

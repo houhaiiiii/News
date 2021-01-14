@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 文章列表详情控制实现类
+ *
  * @author houhai
  */
 @RestController
@@ -21,9 +22,28 @@ public class ArticleInfoController implements ArticleInfoControllerApi {
     @Autowired
     ArticleInfoService articleInfoService;
 
+    /**
+     * 加载文章详情
+     *
+     * @param dto
+     * @return
+     */
     @PostMapping("/load_article_info")
     @Override
     public ResponseResult loadArticleInfo(@RequestBody ArticleInfoDto dto) {
         return articleInfoService.loadArticleInfo(dto);
     }
+
+    /**
+     * 加载文章详情的行为内容
+     *
+     * @param dto
+     * @return
+     */
+    @PostMapping("/load_article_behavior")
+    @Override
+    public ResponseResult loadArticleBehavior(@RequestBody ArticleInfoDto dto) {
+        return articleInfoService.loadArticleBehavior(dto);
+    }
+
 }

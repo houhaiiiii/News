@@ -59,4 +59,18 @@ public class ApLikesBehaviorServiceImpl extends ServiceImpl<ApLikesBehaviorMappe
             return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
         }
     }
+
+    /**
+     * 根据行为实体id和文章id查询点赞行为
+     * @param articleId
+     * @param entryId
+     * @param type
+     * @return
+     */
+    @Override
+    public ApLikesBehavior findLikeByArticleIdAndEntryId(Long articleId, Integer entryId, Short type) {
+        return getOne(Wrappers.<ApLikesBehavior>lambdaQuery()
+                .eq(ApLikesBehavior::getArticleId, articleId).eq(ApLikesBehavior::getEntryId, entryId)
+                .eq(ApLikesBehavior::getType, type));
+    }
 }
