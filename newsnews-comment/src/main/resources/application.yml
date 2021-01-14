@@ -1,0 +1,9 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: newsnews-comment
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.86.130:8848
